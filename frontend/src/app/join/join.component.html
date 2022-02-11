@@ -1,0 +1,21 @@
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+            <!-- Form -->
+            <form class="form-example" action="" method="post">
+                <h1>Welcome to chat room</h1>
+                <!-- Input fields -->
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" required ngModel #username="ngModel" class="form-control username" id="username"
+                        placeholder="Username..." name="username">
+                </div>
+                <button [disabled]="username.invalid" (click)="save(username.value)" type="submit"
+                    class="btn btn-primary btn-customized">Next</button>
+                <!-- End input fields -->
+                <p class="copyright">&copy; {{date | date :'yyyy'}} chat Room.</p>
+            </form>
+            <!-- Form end -->
+        </div>
+    </div>
+</div>

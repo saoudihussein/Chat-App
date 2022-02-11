@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div #scrollMe id="scrollable-content">
+  <div *ngFor="let greeting of greetings">
+    <div *ngIf="greeting.name != name" class="bubbleWrapper">
+      <div class="inlineContainer">
+        <span class="other">{{greeting.name |  uppercase }}</span>
+        <div class="otherBubble other">
+          {{greeting.message}}
+        </div>
+      </div><span class="other">{{greeting.time}}</span>
+    </div>
+    <div *ngIf="greeting.name == name" class="bubbleWrapper">
+      <div class="inlineContainer own">
+        <span class="own">you</span>
+        <div class="ownBubble own">
+          {{greeting.message}}
+        </div>
+      </div><span class="own">{{greeting.time}}</span>
+    </div>
+  </div>
+</div>
+<div class="type_msg">
+  <div class="input_msg_write">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input name="message" ngModel required #message="ngModel" type="text" class="write_msg"
+        placeholder="Type a message" />
+      <button [disabled]="message.invalid" class="msg_send_btn" type="submit"><i class="fa fa-paper-plane"></i></button>
+    </form>
+  </div>
+</div>
